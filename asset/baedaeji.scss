@@ -118,8 +118,9 @@ body {
     align-items: center;
     width: 100%;
     height: 72px;
+    background: $c-white;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 72px;
     box-shadow: 0 1px rgba($c-dark, .1);
     &::before {
         opacity: 0;
@@ -145,18 +146,55 @@ body {
         align-items: center;
         justify-content: flex-start;
         width: 140px;
-        height: 40px;
+        height: 72px;
         img {
             position: relative;
             display: block;
         }
     }
-    nav {
+    .nav {
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: row;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        font-weight: 600;
+        font-size: 18px;
         width: 100%;
+        li {
+            position: relative;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 72px;
+            &:hover nav {
+                display: flex;
+            }
+        }
+        nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 50%;
+            top: 72px;
+            margin-left: -75px;
+            width: 150px;
+            border: 1px solid rgba($c-dark, .1);
+            border-top: 0;
+            background: $c-white;
+            font-size: 16px;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-top: 1px solid $c-bd;
+                line-height: 48px;
+                border-radius: 0;
+            }
+        }
         a {
             display: flex;
             align-items: center;
@@ -164,12 +202,10 @@ body {
             padding: 0 16px;
             height: 40px;
             color: $c-dark;
-            font-weight: 600;
-            font-size: 18px;
             transition: all .25s ease-in-out;
             border-radius: 4px;
             &:hover {
-                background: $c-bg;
+                background: $c-bd;
             }
         }
         &:hover a {
@@ -177,6 +213,9 @@ body {
             &:hover {
                 opacity: 1;
             }
+        }
+        .nav-sub {
+            position: absolute;
         }
     }
     .account-nav {
@@ -191,7 +230,7 @@ body {
             align-items: center;
             padding: 0 16px;
             height: 40px;
-            background: $c-bg;
+            background: $c-bd;
             color: $c-dark;
             font-weight: 600;
             font-size: 16px;
@@ -765,6 +804,63 @@ section {
         }
         dt {
             color: $c-gray;
+        }
+    }
+}
+
+/*
+    플로팅 공지사항
+*/
+.floating-notice {
+    z-index: 5;
+    position: fixed;
+    right: 16px;
+    top: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 400px;
+    button {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 32px;
+        height: 32px;
+        border: 0;
+        background: transparent url('../i-close.svg') no-repeat center;
+        text-indent: -9999px;
+    }
+    .item-card,
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px 8px;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 12px 16px;
+        min-height: 40px;
+        border: 1px solid rgba($c-dark, .1);
+        background: $c-bg;
+        line-height: 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba($c-dark, .08);
+        em {
+            color: $c-gray;
+            font-weight: 600;
+            font-style: normal;
+        }
+        p {
+            padding-top: 4px;
+            border-top: 1px solid $c-bd;
+        }
+    }
+    .item {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        small {
+            color: $c-brand;
+            font-weight: 700;
         }
     }
 }
