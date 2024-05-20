@@ -26,13 +26,19 @@
             <a class="brand" href="#jump-hero">
                <img src="./logo.svg" alt="배대지" width="108" height="28"> 
             </a>
-            <nav>
-                <a href="#">이용안내</a>
-                <a href="#">구매대행</a>
-                <a href="#">배송대행</a>
-                <a href="#">재고관리</a>
-                <a href="#">고객지원</a>
-            </nav>
+            <ul class="nav">
+                <li><a href="#">이용안내</a></li>
+                <li>
+                    <a href="#">구매대행</a>
+                    <nav class="nav-sub">
+                        <a href="#">구매대행 신청</a>
+                        <a href="#">액셀 대량 등록</a>
+                    </nav>
+                </li>
+                <li><a href="#">배송대행</a></li>
+                <li><a href="#">재고관리</a></li>
+                <li><a href="#">고객지원</a></li>
+            </ul>
             <div class="account-nav">
                 <a href="#" data-icon="cart" data-badge="3">장바구니</i>
                 </a>
@@ -111,7 +117,7 @@
 
     <section id="jump-trust" class="section-trust">
         <div class="inner-wrapper">
-            <div class="headline wow fadeIn">
+            <div class="headline wow fadeIn" data-wow-delay=".4s">
                 <h4>믿을 수 있는 지표</h4>
                 <h2>
                     <span>수많은 고객들이 선택하고 있는</span>
@@ -142,13 +148,13 @@
 
     <section id="jump-howto" class="section-howto">
         <div class="inner-wrapper">
-            <div class="headline">
+            <div class="headline wow fadeIn" data-wow-delay=".4s">
                 <h4>고객 서비스</h4>
                 <h2>
                     <span>배대지 어렵지 않아요</span>
                 </h2>
             </div>
-            <ul class="box-wrap">
+            <ul class="box-wrap wow fadeIn">
                 <li>
                     아이템스카우트 배대지<br>이용 가이드
                     <a href="#">바로가기</a>
@@ -158,7 +164,7 @@
                     <a href="#">바로가기</a>
                 </li>
             </ul>
-            <div class="box-wrap">
+            <div class="box-wrap wow fadeIn">
                 <a href="#">
                     <span>중국 택배 조회</span>
                     <img src="logo/link-logo-china.png" height="32">
@@ -180,7 +186,7 @@
                     <img src="logo/link-logo-uni.png" height="32">
                 </a>
             </div>
-            <div class="box-currency">
+            <div class="box-currency wow fadeIn">
                 <h4>환율안내</h4>
                 <dl>
                     <dt>관세청 고시환율</dt>
@@ -195,11 +201,11 @@
 
     <section id="jump-cs" class="section-cs">
         <div class="inner-wrapper">
-            <div class="headline">
+            <div class="headline wow fadeIn">
                 <img src="./i-cs.svg" width="64">
                 <h2>도움이 필요하신가요?</h2>
             </div>
-            <div class="contact">
+            <div class="contact wow fadeIn">
                 <button>1:1 채팅 상담</button>
                 <button>1833-6345</button>
                 <p>
@@ -208,7 +214,7 @@
                     <span>(점심시간 12:00 - 13:00)</span>
                 </p>
             </div>
-            <div class="community">
+            <div class="community wow fadeIn">
                 <div class="item notice">
                     <h5><a href="#">공지사항</a></h5>
                     <ul>
@@ -230,7 +236,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="box-bank">
+            <div class="box-bank wow fadeIn">
                 <h4>계좌안내</h4>
                 <dl>
                     <dt><img src="logo/logo-ibk.png" alt="IBK 기업은행" width="108"></dt>
@@ -266,6 +272,20 @@
         </div>
     </footer>
 
+</div>
+
+<div class="floating-notice">
+    <div class="item-card">
+        <button>닫기</button>
+        <em>24. 05. 22.</em>
+        <strong>세관 통관중 문제가 되는 상황이 발생했어요.</strong>
+        <p>요즘 세관에서 실제로 구매한 전자상거래 주소로 기재가 안되어
+            있을 시 보완 요청이 들어오고 있습니다. 전자상거래 주소를 입력해주세여요.</p>
+    </div>
+    <div class="item">
+        <small>2+</small>
+        <strong>읽지 않은 중요 공지사항이 있습니다.</strong>
+    </div>
 </div>
 
 <script src="asset/wow.min.js"></script>
