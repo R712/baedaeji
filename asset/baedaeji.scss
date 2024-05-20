@@ -1,0 +1,1054 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+@import url(animate.css);   // animation
+@import url(icons.min.css); // pure css 아이콘
+
+//
+//  기본 세팅
+//
+$c-brand: #005DE8;
+$c-dark: #1A1E22;
+$c-gray: #677785;
+$c-white: #FFF;
+$c-bg: #F5F8FB;
+$c-bd: #EBF0F6;
+$c-bg-green: #E8F8F6;
+$radius: 8px;
+$f-xxl: 48px;
+$f-xl: 22px;
+$f-lg: 20px;
+$f-md: 16px;
+$f-df: 14px;
+
+input:focus {
+    outline: none;
+    transition: ease-in-out all .15s;
+}
+
+::selection {
+    background: $c-brand;
+    color: $c-white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+button {
+    text-decoration: none;
+    cursor: pointer !important;
+    &:hover,
+    &:hover::before,
+    &:hover::after,
+    &:hover * {
+        transition: ease-in-out all .25s;
+    }
+}
+
+html {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    color: $c-dark;
+    font-weight: 400;
+    font-family: 'Pretendard', sans-serif;
+    line-height: 1.58;
+    cursor: default;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    background: #FFF;
+}
+
+[data-icon] {
+    &::before {
+        content: '';
+        display: flex;
+        width: 24px;
+        height: 24px;
+        background: no-repeat center;
+        color: transparent;
+    }
+    &[data-icon=cart]::before {
+        background-image: url('../i-cart.svg');
+    }
+    &[data-icon=location]::before {
+        background-image: url('../i-location.svg');
+        filter: invert(100%);
+    }
+}
+
+[data-badge] {
+    position: relative;
+    &::after {
+        content: attr(data-badge);
+        position: absolute;
+        right: 4px;
+        top: -4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+        height: 18px;
+        background: $c-brand;
+        color: $c-white;
+        font-size: 10px;
+        border-radius: 9px;
+    }
+}
+
+.gnb {
+    z-index: 50;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 72px;
+    font-size: 18px;
+    line-height: 40px;
+    box-shadow: 0 1px rgba($c-dark, .1);
+    &::before {
+        opacity: 0;
+        content: '';
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba($c-white, 0.88);
+        transition: ease-in-out all .6s;
+    }
+    .inner-wrapper {
+        display: flex;
+        justify-content: start;
+        gap: 24px;
+        padding: 0 24px;
+        width: 100%;
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 140px;
+        height: 40px;
+        img {
+            position: relative;
+            display: block;
+        }
+    }
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+            height: 40px;
+            color: $c-dark;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all .25s ease-in-out;
+            border-radius: 4px;
+            &:hover {
+                background: $c-bg;
+            }
+        }
+        &:hover a {
+            opacity: .6;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    .account-nav {
+        display: flex;
+        flex-direction: row;
+        justify-self: flex-end;
+        align-items: center;
+        gap: 12px;
+        a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0 16px;
+            height: 40px;
+            background: $c-bg;
+            color: $c-dark;
+            font-weight: 600;
+            font-size: 16px;
+            word-break: keep-all;
+            white-space: nowrap;
+            border-radius: 4px;
+        }
+        [data-icon=cart] {
+            padding: 0 8px;
+            background: transparent;
+            color: transparent;
+            font-size: 1px;
+        }
+        [data-icon=location] {
+            gap: 4px;
+            padding: 0 16px 0 12px;
+            background: $c-dark;
+            color: $c-white;
+        }
+    }
+    &.is-scroll {
+        z-index: 5;
+        background: rgba($c-white, 0.88);
+        backdrop-filter: blur(12px);
+        .brand {
+            svg {
+                fill: $c-brand;
+            }
+        }
+    }
+}
+
+/*
+    섹션 스타일링
+*/
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 900px;
+    background: $c-white;
+    color: $c-dark;
+    box-shadow: inset 0 1px rgba($c-dark, .04);
+    .inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        max-width: 1080px;
+        width: 100%;
+    }
+    .btn-jump,
+    .btn-gototop {
+        z-index: 1;
+        position: absolute;
+        left: 50%;
+        margin-left: -24px;
+        bottom: 12px;
+        width: 48px;
+        border: 0;
+        background: none;
+        color: $c-gray;
+        font-weight: 100;
+        font-size: 24px;
+        cursor: pointer;
+        animation: blingJump 2s infinite;
+    }
+    .btn-gototop {
+        transform: rotate(180deg);
+        animation: none;
+    }
+    .headline {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        h4 {
+            color: $c-gray;
+            font-size: 20px;
+            line-height: 1;
+        }
+        h2 {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            line-height: 1;
+        }
+    }
+    .msg {
+        z-index: 1;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        min-height: 100%;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+    /*
+        히어로 섹션
+    */
+    &.section-hero {
+        z-index: 1;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        overflow: hidden;
+        .search-area {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            height: 64px;
+            // border-radius: 32px;
+            input {
+                display: flex;
+                padding-left: 48px;
+                width: 100%;
+                height: 64px;
+                border: 0;
+                border-bottom: 3px solid lighten($c-brand, 48%);
+                background: transparent url('../i-search.svg') no-repeat 8px center;
+                outline: none;
+                color: $c-dark;
+                font-weight: 600;
+                font-size: 16px;
+                transition: .3s ease all;
+                &::placeholder {
+                    color: $c-dark;
+                }
+                &:focus {
+                    border-bottom-color: $c-brand;
+                }
+            }
+        }
+        .hero-box,
+        .inner-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 24px;
+            max-width: 980px;
+            width: 100%;
+        }
+        .hero-box {
+            height: 360px;
+        }
+        .msg {
+            z-index: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+            max-width: 300px;
+            em {
+                padding-left: 2px;
+                width: 100%;
+                color: $c-gray;
+                font-style: normal;
+                font-weight: 700;
+                font-size: $f-lg;
+            }
+            p {
+                font-weight: 700;
+                font-size: 56px;
+                line-height: 56px;
+                letter-spacing: -0.4px;
+                word-break: keep-all;
+                white-space: nowrap;
+                text-align: center;
+                // text-shadow: 0 1px 1px rgba($c-dark, .1), 0 4px 40px rgba($c-dark, .1);
+            }
+            small {
+                color: $c-gray;
+                font-weight: 600;
+                font-size: 18px;
+            }
+        }
+        .btns {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            margin-top: 24px;
+            a {
+                z-index: 2;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 160px;
+                height: 60px;
+                background: $c-brand;
+                color: $c-white;
+                font-weight: 500;
+                font-size: 18px;
+                border-radius: 30px;
+                cursor: pointer;
+                &:hover {
+                    background: darken($c-brand, 2%);
+                    text-decoration: none;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 40px rgba($c-brand, .4);
+                }
+            }
+        }
+        .carousel {
+            position: relative;
+            width: 500px;
+            border-radius: 24px;
+            .tns-item {
+                width: 500px;
+                height: 320px;
+                border-radius: 24px;
+                overflow: hidden;
+                img {
+                    width: 500px;
+                    height: 320px;
+                }
+            }
+            .tns-prev,
+            .tns-next {
+                z-index: 5;
+                position: absolute;
+                top: 50%;
+                margin-top: -24px;
+                width: 48px;
+                height: 48px;
+                border: 0;
+                background: $c-white url('../i-chevron.svg') no-repeat center;
+                text-indent: -9999px;
+                border-radius: 24px;
+                opacity: 0;
+                transition: .2s ease all;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            .tns-prev {
+                left: -24px;
+            }
+            .tns-next {
+                right: -24px;
+                transform: rotate(180deg);
+            }
+            .tns-nav {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                margin-top: 12px;
+                button {
+                    width: 10px;
+                    height: 10px;
+                    border: 0;
+                    background: $c-bd;
+                    border-radius: 5px;
+                    &.tns-nav-active {
+                        background: $c-brand;
+                    }
+                }
+            }
+            &:hover .tns-prev,
+            &:hover .tns-next {
+                opacity: 1;
+            }
+        }
+        .keybox,
+        .keylink {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px;
+            width: calc(100%/3);
+            border: 1px solid rgba($c-dark, .06);
+            background: $c-white;
+            line-height: 1;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba($c-dark, .08);
+            transition: .3s ease all;
+            strong {
+                color: $c-gray;
+                font-size: 16px;
+            }
+            span {
+                font-weight: 600;
+                font-size: 20px;
+            }
+            em {
+                color: $c-brand;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 12px 0 24px;
+                width: 100%;
+                height: 50%;
+                background: $c-bg;
+                color: $c-dark;
+                font-weight: 600;
+                border-radius: 12px;
+                &::after {
+                    opacity: .24;
+                    content: '';
+                    width: 32px;
+                    height: 32px;
+                    background: url('../i-chevron.svg') no-repeat right center;
+                    background-size: 24px;
+                    transform: rotate(180deg);
+                }
+                &:hover {
+                    background: lighten($c-brand, 48%);
+                    &::after {
+                        opacity: .4;
+                        background-size: 32px;
+                    }
+                }
+            }
+        }
+        .keylink {
+            padding: 8px;
+        }
+        .keybox:hover {
+            transform: scale(1.04);
+        }
+    }
+    .circles {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 48px;
+        width: 100%;
+        & > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: calc(100%/4);
+            max-width: 200px;
+            height: 200px;
+            background: $c-bg;
+            border-radius: 50%;
+            transition: .4s ease all;
+            &:nth-child(odd) {
+                margin-bottom: -48px;
+                background: lighten($c-brand, 48%);
+            }
+            &:hover {
+                background: $c-brand;
+                color: $c-white;
+                transform: scale(1.1);
+                box-shadow: 0 8px 40px rgba($c-brand, .4);
+            }
+        }
+        small {
+            font-size: 16px;
+        }
+        strong {
+            font-size: 28px;
+        }
+    }
+}
+.section-howto {
+    background: $c-bg;
+    .box-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        margin-top: 8px;
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex: 1 1 auto;
+            padding: 64px 0;
+            background: $c-white;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 1.25;
+            text-align: center;
+            border-radius: 16px;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 156px;
+                height: 56px;
+                background: $c-dark;
+                color: $c-white;
+                font-size: 18px;
+                border-radius: 8px;
+                &:hover {
+                    transform: translateY(-4px);
+                }
+            }
+        }
+        & > a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1 1 auto;
+            padding: 16px 0;
+            background: $c-white;
+            color: $c-gray;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.28;
+            text-align: center;
+            border-radius: 16px;
+        }
+    }
+    .box-currency {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 32px 0 80px;
+        height: 80px;
+        background: $c-white url('../i-graph.svg') no-repeat 24px center;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1;
+        text-align: center;
+        border-radius: 16px;
+        dl {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+        dt {
+            color: $c-gray;
+        }
+    }
+}
+.section-cs {
+    background: $c-bg-green;
+    .inner-wrapper {
+        justify-content: center;
+        align-items: center;
+        max-width: 880px;
+    }
+    .headline {
+        opacity: .88;
+    }
+    .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 12px;
+        align-items: center;
+        justify-content: center;
+        max-width: 400px;
+        p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 8px;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            em {
+                color: $c-brand;
+                font-style: normal;
+                font-weight: 600;
+            }
+        }
+        button {
+            opacity: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 156px;
+            height: 56px;
+            border: 0;
+            background: $c-dark;
+            color: $c-white;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 8px;
+            &:hover {
+                transform: translateY(-4px);
+            }
+        }
+    }
+    .community {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 2px solid rgba($c-dark, 8%);
+        font-size: 16px;
+        line-height: 40px;
+        .item {
+            flex: 1 1 auto;
+        }
+        h5 {
+            font-size: 20px;
+        }
+        li {
+            display: flex;
+            list-style: none;
+        }
+        a {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            color: $c-dark;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        em {
+            color: $c-gray;
+            font-style: normal;
+        }
+        .faq li::before {
+            content: 'Q';
+            margin-right: 8px;
+            color: $c-gray;
+            font-weight: 600;
+        }
+    }
+    .box-bank {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 32px;
+        width: 100%;
+        height: 80px;
+        background: $c-white;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1;
+        text-align: center;
+        border-radius: 16px;
+        dl {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+        dt {
+            color: $c-gray;
+        }
+    }
+}
+
+/*
+    푸터
+*/
+.copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 64px;
+    background: $c-dark;
+    color: $c-white;
+    .copyright-inner {
+        display: flex;
+        flex-direction: column;
+        width: 84%;
+        max-width: 1000px;
+        padding: 64px 0 24px;
+    }
+    img {
+        margin-bottom: 20px;
+        padding: 0;
+        width: 108px;
+        filter: invert(100%);
+    }
+    p {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 8px 16px;
+        max-width: 84%;
+        overflow: hidden;
+    }
+    span {
+        font-size: $f-df;
+        line-height: 1;
+        word-break: keep-all;
+        white-space: nowrap;
+    }
+    h6 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        opacity: .6;
+        width: 84%;
+        max-width: 1000px;
+        padding: 16px 0;
+        font-weight: 300;
+        font-size: $f-md;
+    }
+    nav {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        font-size: $f-md;
+        strong {
+            margin-right: 12px;
+        }
+        a {
+            color: $c-white;
+            font-weight: 600;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+/*
+    애니메이션
+*/
+@keyframes blingEffect {
+    from {
+        transform: translateX(0);
+        opacity: .2;
+    }
+    to {
+        transform: translateX(4px);
+        opacity: .8;
+    }
+}
+
+@keyframes blingJump {
+    50% {
+        transform: translateY(-4px);
+        opacity: .4;
+    }
+}
+
+@keyframes bgEffect {
+    40% {
+        backdrop-filter: blur(12px);
+    }
+}
+
+@keyframes rolling {
+    40% {
+        margin-top: -300px;
+    }
+}
+
+//
+//  반응형 대응
+//
+@media (max-width: 1200px) {
+    body,
+    .wrapper {
+        min-width: 100vw;
+        max-width: 100vw;
+    }
+    .wrapper {
+        overflow: hidden;
+    }
+    section {
+        min-height: 100vh !important;
+        padding: 40px 0;
+        &.section-hero {
+            .msg {
+                margin: 0 40px;
+                span {
+                    font-size: 48px;
+                    line-height: 56px;
+                }
+                strong {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    .gnb {
+        z-index: 500;
+        display: block;
+        padding-top: 0 !important;
+        height: 78px;
+        .brand {
+            position: relative;
+            width: 100%;
+            height: 78px;
+            text-indent: -9999px;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 24px;
+                top: 32px;
+                width: 20px;
+                height: 2px;
+                background: $c-white;
+                transition: all .15s cubic-bezier(.17,.67,.83,.67);
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: 24px;
+                top: 40px;
+                width: 14px;
+                height: 2px;
+                background: $c-white;
+                transition: all .15s cubic-bezier(.17,.67,.83,.67);
+            }
+            svg {
+                opacity: 0;
+            }
+        }
+        nav {
+            position: fixed;
+            left: 0;
+            top: -100vh;
+            flex-direction: column;
+            padding-bottom: 24px;
+            width: 100%;
+            background: $c-brand;
+            overflow: hidden;
+            transition: all .25s cubic-bezier(.17,.67,.83,.67);
+            a {
+                margin: 0 !important;
+                width: 100vw;
+                height: 48px;
+                color: $c-white;
+                font-size: 16px;
+                justify-content: center;
+            }
+            .btn-signin {
+                height: 80px;
+                background-size: 24px;
+                &:hover {
+                    background-color: transparent !important;
+                    opacity: .6;
+                }
+            }
+        }
+        &.is-scroll {
+            backdrop-filter: none;
+            background: $c-bg;
+            &::before {
+                background: none;
+                backdrop-filter: none;
+            }
+        }
+        &.is-open,
+        &.is-open.is-scroll {
+            background: $c-bg;
+            &::before {
+                background: none;
+            }
+            nav {
+                top: 78px;
+                a {
+                    opacity: 1;
+                    color: $c-white;
+                }
+            }
+            h1 {
+                &::after {
+                    top: 34px;
+                    transform: rotate(45deg);
+                }
+                &::before {
+                    top: 34px;
+                    width: 20px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    .bubblemsg {
+        flex-direction: column !important;
+        margin: 0 0 24px !important;
+        width: calc(100vw - 80px) !important;
+        max-width: 100% !important;
+    }
+    .clients {
+        display: none;
+    }
+}
+
+.bg-effect {
+    $particleSize: 40vmin;
+    $animationDuration: 32s;
+    $amount: 10;
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $c-white;
+    overflow: hidden;
+    span {
+        width: $particleSize;
+        height: $particleSize;
+        border-radius: $particleSize;
+        backface-visibility: hidden;
+        position: absolute;
+        animation-name: bgMove;
+        animation-duration: $animationDuration;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        $colors: (
+            rgba($c-brand, .08),
+            rgba($c-brand, .1),
+            rgba($c-brand, .04)
+        );
+        @for $i from 1 through $amount {
+            &:nth-child(#{$i}) {
+            color: nth($colors, random(length($colors)));
+            top: random(100) * 1%;
+            left: random(100) * 1%;
+            animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+            animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+            transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+            $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+            $x: if(random() > 0.5, -1, 1);
+            box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+            }
+        }
+    }
+}
+
+@keyframes bgMove {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
