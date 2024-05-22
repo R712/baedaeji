@@ -23,6 +23,10 @@
 
     <header class="gnb">
         <div class="inner-wrapper">
+
+            <button class="btn-mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#1a1e22"><path d="M177.37-252.28q-17.45 0-29.48-11.97-12.02-11.96-12.02-29.32t12.02-29.54q12.03-12.17 29.48-12.17h605.26q17.45 0 29.48 11.96 12.02 11.96 12.02 29.33 0 17.36-12.02 29.53-12.03 12.18-29.48 12.18H177.37Zm0-186.22q-17.45 0-29.48-11.96-12.02-11.97-12.02-29.33t12.02-29.54q12.03-12.17 29.48-12.17h605.26q17.45 0 29.48 11.96 12.02 11.97 12.02 29.33t-12.02 29.54q-12.03 12.17-29.48 12.17H177.37Zm0-186.22q-17.45 0-29.48-11.96-12.02-11.96-12.02-29.33 0-17.36 12.02-29.53 12.03-12.18 29.48-12.18h605.26q17.45 0 29.48 11.97 12.02 11.96 12.02 29.32t-12.02 29.54q-12.03 12.17-29.48 12.17H177.37Z"/></svg>
+            </button>
             <a class="brand" href="#jump-hero">
                <img src="./logo.svg" alt="배대지" width="108" height="28"> 
             </a>
@@ -274,17 +278,52 @@
 
 </div>
 
-<div class="floating-notice">
+<div class="floating-notice wow fadeInRight slow" data-wow-delay="1.5s">
     <div class="item-card">
-        <button>닫기</button>
+        <button class="btn-close">닫기</button>
         <em>24. 05. 22.</em>
         <strong>세관 통관중 문제가 되는 상황이 발생했어요.</strong>
-        <p>요즘 세관에서 실제로 구매한 전자상거래 주소로 기재가 안되어
-            있을 시 보완 요청이 들어오고 있습니다. 전자상거래 주소를 입력해주세여요.</p>
+        <p>요즘 세관에서 실제로 구매한 전자상거래 주소로 기재가 안되어 있을 시 보완 요청이 들어오고 있습니다. 전자상거래 주소를 입력해주세요.</p>
     </div>
     <div class="item">
         <small>2+</small>
         <strong>읽지 않은 중요 공지사항이 있습니다.</strong>
+    </div>
+</div>
+
+<div class="modal is-hide fadeInUp slow">
+    <div class="modal-inner">
+        <button class="btn-close">닫기</button>
+        <h4>🇨🇳 웨이하이(위해)</h4>
+        <table>
+            <tr>
+                <th>详细地址(주소)</th>
+                <td>首尔特别市江南区三成洞</td>
+            </tr>
+            <tr>
+                <th>详细地址2(상세주소)</th>
+                <td>首尔特 160-5 别市江南区三成洞 101</td>
+            </tr>
+            <tr>
+                <th>收件人姓名(수취인명)</th>
+                <td>WAACARGO</td>
+            </tr>
+            <tr>
+                <th>收件人姓人姓名(내사서함번호)</th>
+                <td><span class="txt-hint">"로그인 후 내 사서함 번호를 꼭 확인해주세요.</span></td>
+            </tr>
+            <tr>
+                <th>电话号码(전화)</th>
+                <td>17662750498</td>
+            </tr>
+            <tr>
+                <th>邮政编码(우편번호)</th>
+                <td>264200</td>
+            </tr>
+        </table>
+    </div>
+    <div class="btns">
+        <button class="btn">닫기</button>
     </div>
 </div>
 
@@ -317,6 +356,21 @@ var slider = tns({
 const jumpNav = document.querySelector('.gnb nav');
 const logo = document.querySelector('.gnb .brand');
 const gnb = document.querySelector('.gnb');
+const linkMyLocation = gnb.querySelector('[data-icon=location]');
+const modalMyLocation = document.querySelector('.modal');
+let modalMyLocationX = modalMyLocation.querySelector('button');
+let floatingNotice = document.querySelector('.floating-notice');
+let floatingNoticeX = floatingNotice.querySelector('.btn-close');
+
+floatingNoticeX.onclick = function() {
+    floatingNotice.classList.toggle('is-hide');
+}
+linkMyLocation.onclick = function() {
+    modalMyLocation.classList.toggle('is-hide');
+}
+modalMyLocationX.onclick = function() {
+    modalMyLocation.classList.toggle('is-hide');
+}
 
 logo.onclick = function() {
     gnb.classList.toggle('is-open');
