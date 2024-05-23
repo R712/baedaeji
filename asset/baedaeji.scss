@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 @import url(animate.css);   // animation
-@import url(icons.min.css); // pure css 아이콘
 
 //
 //  기본 세팅
@@ -759,15 +758,15 @@ section {
         li {
             display: flex;
             list-style: none;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
         a {
             display: flex;
             gap: 8px;
             width: 100%;
             color: $c-dark;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
             &:hover {
                 text-decoration: underline;
             }
@@ -825,7 +824,7 @@ section {
     text-indent: -9999px;
 }
 .floating-notice {
-    z-index: 5;
+    z-index: 555;
     position: fixed;
     right: 16px;
     top: 88px;
@@ -886,6 +885,7 @@ section {
     flex-direction: column;
     gap: 8px;
     width: 600px;
+    max-width: calc(100vw - 16px);
     transition: .4s ease all;
     .btns {
         display: flex;
@@ -906,6 +906,7 @@ section {
         box-shadow: inset 0 0 1px rgba($c-dark, .4), 0 4px 16px rgba($c-dark, .08);
     }
     &.is-hide {
+        display: none;
         opacity: 0;
         right: -500px;
     }
@@ -1057,11 +1058,11 @@ section {
 //  반응형 대응
 //
 @media (max-width: 980px) {
-    .animated {
-        transition-property: none !important;
-        transform: none !important;
-        animation: none !important;
-    }
+    // .animated {
+    //     transition-property: none !important;
+    //     transform: none !important;
+    //     animation: none !important;
+    // }
     body,
     .wrapper {
         min-width: 100vw;
@@ -1071,7 +1072,7 @@ section {
         overflow: hidden;
     }
     .gnb {
-        z-index: 500;
+        z-index: 800 !important;
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
@@ -1083,6 +1084,7 @@ section {
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
+            gap: 0;
             padding: 0;
         }
         .btn-mobile {
@@ -1094,7 +1096,9 @@ section {
             width: 60px;
             height: 60px;
             border: 0;
-            background: none;
+            background: url('../i-menu.svg') no-repeat center;
+            background-size: 20px;
+            text-indent: -9999px;
             svg {
                 display: none;
                 width: 32px;
@@ -1115,30 +1119,60 @@ section {
         .nav {
             flex-direction: row;
             flex-wrap: wrap;
+            margin: 8px 16px;
             padding-bottom: 0;
-            width: 100vw;
-            background: $c-bd;
+            width: calc(100% - 32px);
+            background: $c-bg;
             overflow: hidden;
             transition: all .25s cubic-bezier(.17,.67,.83,.67);
+            border-radius: 8px;
             li {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 width: 100vw;
                 min-height: 60px;
                 height: inherit;
+                border-top: 1px solid $c-white;
             }
             a {
-                margin: 0 !important;
-                height: 48px;
-                color: $c-dark;
-                font-size: 16px;
-                justify-content: center;
-            }
-            nav {
-                position: relative;
                 display: flex;
+                margin: 0 !important;
+                width: 100%;
+                height: 60px;
+                color: $c-dark;
+                font-size: 18px;
+                justify-content: center;
+                &:hover {
+                    background: lighten($c-brand, 48%);
+                }
             }
+            .nav-sub {
+                left: inherit;
+                top: inherit;
+                margin: 0 16px 8px;
+                position: relative !important;
+                display: flex;
+                padding: 0 16px;
+                width: 100%;
+                border: 0;
+                background: $c-bg;
+                border-radius: 8px;
+                a {
+                    width: 100%;
+                    height: 48px;
+                    border: 0;
+                    color: rgba($c-dark, .8);
+                    font-size: 15px;
+                }
+            }
+        }
+        .account-nav {
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0 16px;
+            width: 100%;
         }
         &.is-scroll {
             backdrop-filter: none;
@@ -1151,7 +1185,7 @@ section {
         &.is-open,
         &.is-open.is-scroll {
             height: inherit;
-            background: $c-bg;
+            background: $c-white;
             &::before {
                 background: none;
             }
@@ -1159,7 +1193,6 @@ section {
                 top: 72px;
                 a {
                     opacity: 1;
-                    color: $c-dark;
                 }
             }
             h1 {
@@ -1173,46 +1206,76 @@ section {
                     transform: rotate(-45deg);
                 }
             }
+            .btn-mobile {
+                background-image: url('../i-gnbx.svg');
+                background-size: 20px;
+            }
         }
     }
     section {
+        max-width: 100vw;
         min-height: 100vh !important;
-        padding: 40px 16px;
+        padding: 40px 12px;
         .headline {
+            gap: 8px;
+            h4 {
+                font-size: 18px;
+            }
             h2 {
-                font-size: 32px;
+                gap: 8px;
+                font-size: 27px;
             }
         }
         &.section-hero {
+            gap: 16px;
             padding-top: 100px;
+            .bg-effect {
+                display: none;
+            }
+            .hero-box {
+                height: auto;
+            }
             .inner-wrapper {
                 flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
+                justify-content: space-around;
+                gap: 8px;
             }
             .search-area {
-                padding: 0 24px;
+                padding: 0 0;
+                input {
+                    padding-left: 32px;
+                    height: 60px;
+                    background-size: 18px;
+                }
+            }
+            .msg {
+                gap: 4px;
+                p {
+                    font-size: 48px;
+                }
             }
             .carousel {
                 display: none;
             }
             .keybox {
-                width: 44%;
+                width: 100%;
+                padding: 20px;
                 span,
                 strong,
                 em {
-                    font-size: 16px;
+                    font-size: 18px;
                 }
             }
             .keylink {
-                border: 0;
-                box-shadow: none;
-                background: none;
-                width: 100% !important;
                 flex-direction: row;
-                justify-content: center;
+                justify-content: space-around;
+                padding: 8px 0 24px;
+                width: 100% !important;
+                border: 0;
+                background: none;
+                box-shadow: none;
                 a {
-                    width: 44%;
+                    width: 100%;
                     height: 48px;
                 }
             }
@@ -1227,18 +1290,28 @@ section {
             }
         }
         &.section-howto {
+            .inner-wrapper {
+                gap: 16px;
+            }
             .box-wrap {
                 gap: 16px;
                 li {
-                    font-size: 18px;
+                    gap: 12px;
+                    padding: 24px 0;
+                    font-size: 17px;
+                }
+                a {
+                    width: 120px;
+                    height: 44px;
+                    font-size: 15px;
                 }
             }
             div.box-wrap {
                 display: none;
             }
             .box-currency {
-                padding: 12px 24px;
-                height: 88px;
+                padding: 12px 16px 16px;
+                height: auto;
                 background: $c-white;
                 flex-direction: column;
                 font-size: 17px;
@@ -1247,16 +1320,47 @@ section {
                     width: 100%;
                     border-bottom: 1px solid $c-bd;
                 }
+                dl {
+                    flex-wrap: wrap;
+                    gap: 12px 0;
+                    font-size: 16px;
+                    dt,
+                    dd {
+                        width: 50%;
+                    }
+                }
             }
         }
         &.section-cs {
             .community {
+                width: calc(100% - 32px);
                 flex-direction: column;
+                font-size: 15px;
+                .item {
+                    width: 100%;
+                }
             }
             .box-bank {
-                padding: 8px 16px;
-                height: 60px;
-                font-size: 15px;
+                margin-bottom: 24px;
+                padding: 12px 16px 16px;
+                height: auto;
+                background: $c-white;
+                flex-direction: column;
+                font-size: 17px;
+                h4 {
+                    padding-bottom: 12px;
+                    width: 100%;
+                    border-bottom: 1px solid $c-bd;
+                }
+                dl {
+                    flex-wrap: wrap;
+                    gap: 12px 0;
+                    font-size: 15px;
+                    dt,
+                    dd {
+                        width: 50%;
+                    }
+                }
             }
         }
     }
@@ -1268,6 +1372,21 @@ section {
                 line-height: 1.2;
                 font-size: 12px;
             }
+        }
+    }
+    .floating-notice {
+        right: 50%;
+        top: 80px;
+        margin-right: -170px;
+        max-width: 340px;
+    }
+    .modal {
+        left: 50%;
+        top: 80px;
+        margin-left: -180px;
+        max-width: 360px;
+        .modal-inner {
+            padding: 16px;
         }
     }
 }
