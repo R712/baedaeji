@@ -885,7 +885,7 @@ section .circles strong {
     모달 - 내 주소
 */
 .modal {
-  z-index: 5;
+  z-index: 555;
   position: fixed;
   left: 50%;
   top: 10vh;
@@ -1397,93 +1397,93 @@ section .circles strong {
 }
 .bg-effect span:nth-child(1) {
   color: rgba(0, 93, 232, 0.04);
-  top: 95%;
-  left: 43%;
-  animation-duration: 30.5s;
-  animation-delay: -2.4s;
-  transform-origin: -10vw 11vh;
-  box-shadow: -80vmin 0 15.1053875439vmin currentColor;
+  top: 90%;
+  left: 7%;
+  animation-duration: 16.1s;
+  animation-delay: -26s;
+  transform-origin: -6vw -16vh;
+  box-shadow: 80vmin 0 27.8631415076vmin currentColor;
 }
 .bg-effect span:nth-child(2) {
   color: rgba(0, 93, 232, 0.08);
-  top: 7%;
-  left: 60%;
-  animation-duration: 21.5s;
-  animation-delay: -4.1s;
-  transform-origin: -10vw 21vh;
-  box-shadow: -80vmin 0 16.9167661145vmin currentColor;
+  top: 52%;
+  left: 64%;
+  animation-duration: 28.9s;
+  animation-delay: -29.9s;
+  transform-origin: -2vw 4vh;
+  box-shadow: 80vmin 0 16.7999403684vmin currentColor;
 }
 .bg-effect span:nth-child(3) {
-  color: rgba(0, 93, 232, 0.08);
-  top: 92%;
-  left: 31%;
-  animation-duration: 29.1s;
-  animation-delay: -25.2s;
-  transform-origin: 23vw 18vh;
-  box-shadow: 80vmin 0 26.4901923665vmin currentColor;
+  color: rgba(0, 93, 232, 0.04);
+  top: 65%;
+  left: 38%;
+  animation-duration: 14.3s;
+  animation-delay: -26.4s;
+  transform-origin: 10vw 5vh;
+  box-shadow: -80vmin 0 10.3680997829vmin currentColor;
 }
 .bg-effect span:nth-child(4) {
-  color: rgba(0, 93, 232, 0.04);
-  top: 28%;
-  left: 45%;
-  animation-duration: 25.7s;
-  animation-delay: -38.2s;
-  transform-origin: 13vw 6vh;
-  box-shadow: 80vmin 0 21.9634574295vmin currentColor;
+  color: rgba(0, 93, 232, 0.1);
+  top: 65%;
+  left: 75%;
+  animation-duration: 33.1s;
+  animation-delay: -26s;
+  transform-origin: 2vw 16vh;
+  box-shadow: 80vmin 0 14.5942412629vmin currentColor;
 }
 .bg-effect span:nth-child(5) {
   color: rgba(0, 93, 232, 0.1);
-  top: 20%;
-  left: 46%;
-  animation-duration: 34.6s;
-  animation-delay: -34.9s;
-  transform-origin: -17vw -2vh;
-  box-shadow: -80vmin 0 19.3127278006vmin currentColor;
+  top: 4%;
+  left: 15%;
+  animation-duration: 19.8s;
+  animation-delay: -9.1s;
+  transform-origin: 16vw -3vh;
+  box-shadow: 80vmin 0 26.0682688978vmin currentColor;
 }
 .bg-effect span:nth-child(6) {
   color: rgba(0, 93, 232, 0.08);
-  top: 47%;
-  left: 50%;
-  animation-duration: 29.7s;
-  animation-delay: -22.7s;
-  transform-origin: -17vw -10vh;
-  box-shadow: 80vmin 0 12.1869407764vmin currentColor;
+  top: 85%;
+  left: 64%;
+  animation-duration: 36.1s;
+  animation-delay: -35.8s;
+  transform-origin: 24vw 19vh;
+  box-shadow: 80vmin 0 26.0637472177vmin currentColor;
 }
 .bg-effect span:nth-child(7) {
-  color: rgba(0, 93, 232, 0.04);
-  top: 23%;
-  left: 79%;
-  animation-duration: 24.4s;
-  animation-delay: -14.3s;
-  transform-origin: -8vw 25vh;
-  box-shadow: -80vmin 0 17.1603034553vmin currentColor;
+  color: rgba(0, 93, 232, 0.1);
+  top: 24%;
+  left: 22%;
+  animation-duration: 17.2s;
+  animation-delay: -29.1s;
+  transform-origin: -13vw -8vh;
+  box-shadow: 80vmin 0 20.3588126481vmin currentColor;
 }
 .bg-effect span:nth-child(8) {
   color: rgba(0, 93, 232, 0.1);
-  top: 58%;
-  left: 13%;
-  animation-duration: 12.5s;
-  animation-delay: -21.8s;
-  transform-origin: -10vw -21vh;
-  box-shadow: 80vmin 0 24.3794463301vmin currentColor;
+  top: 69%;
+  left: 21%;
+  animation-duration: 18.4s;
+  animation-delay: -23.6s;
+  transform-origin: 2vw 6vh;
+  box-shadow: -80vmin 0 19.0833101077vmin currentColor;
 }
 .bg-effect span:nth-child(9) {
-  color: rgba(0, 93, 232, 0.04);
-  top: 98%;
-  left: 38%;
-  animation-duration: 23.9s;
-  animation-delay: -34.5s;
-  transform-origin: 11vw -7vh;
-  box-shadow: 80vmin 0 23.7659175819vmin currentColor;
+  color: rgba(0, 93, 232, 0.08);
+  top: 91%;
+  left: 54%;
+  animation-duration: 40.4s;
+  animation-delay: -37.7s;
+  transform-origin: 17vw -6vh;
+  box-shadow: -80vmin 0 27.3388632034vmin currentColor;
 }
 .bg-effect span:nth-child(10) {
-  color: rgba(0, 93, 232, 0.04);
-  top: 62%;
-  left: 29%;
-  animation-duration: 24.4s;
-  animation-delay: -5.7s;
-  transform-origin: 25vw 10vh;
-  box-shadow: 80vmin 0 27.0094194117vmin currentColor;
+  color: rgba(0, 93, 232, 0.08);
+  top: 83%;
+  left: 30%;
+  animation-duration: 27s;
+  animation-delay: -6.1s;
+  transform-origin: 21vw 22vh;
+  box-shadow: -80vmin 0 20.6019556554vmin currentColor;
 }
 
 @keyframes bgMove {
