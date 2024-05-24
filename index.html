@@ -357,6 +357,7 @@ const gnb = document.querySelector('.gnb');
 const linkMyLocation = gnb.querySelector('[data-icon=location]');
 const modalMyLocation = document.querySelector('.modal');
 let modalMyLocationX = modalMyLocation.querySelector('button');
+let modalMyLocationBtn = modalMyLocation.querySelector('.btns button');
 let floatingNotice = document.querySelector('.floating-notice');
 let floatingNoticeX = floatingNotice.querySelector('.btn-close');
 
@@ -367,6 +368,9 @@ linkMyLocation.onclick = function() {
     modalMyLocation.classList.toggle('is-hide');
 }
 modalMyLocationX.onclick = function() {
+    modalMyLocation.classList.toggle('is-hide');
+}
+modalMyLocationBtn.onclick = function() {
     modalMyLocation.classList.toggle('is-hide');
 }
 
